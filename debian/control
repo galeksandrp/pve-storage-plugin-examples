@@ -1,0 +1,19 @@
+Source: libpve-storage-examples-perl
+Section: perl
+Priority: optional
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Build-Depends: debhelper-compat (= 13),
+               lintian,
+               perl,
+Standards-Version: 4.6.2
+Homepage: https://www.proxmox.com
+
+Package: libpve-storage-examples-perl
+Architecture: all
+Depends: libpve-storage-perl (>= 8.3.5),
+         ${misc:Depends},
+         ${perl:Depends},
+Recommends: libnbd-bin,
+Description: Example plugins for Proxmox VE storage management library
+ This package contains example plugins for the storage management library used
+ by Proxmox VE.
