@@ -5,8 +5,10 @@ use warnings;
 
 use File::Basename qw(basename);
 
-use PVE::BackupProvider::Plugin::DirectoryExample;
+use PVE::Storage;
 use PVE::Tools;
+
+use PVE::BackupProvider::Plugin::DirectoryExample;
 
 use base qw(PVE::Storage::Plugin);
 

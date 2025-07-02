@@ -8,10 +8,12 @@ use File::Path qw(make_path remove_tree);
 use JSON qw(from_json);
 use MIME::Base64 qw(decode_base64 encode_base64);
 use Net::IP;
-use POSIX;
+use POSIX qw(ENOENT);
+
+use PVE::Storage;
+use PVE::Tools;
 
 use PVE::BackupProvider::Plugin::Borg;
-use PVE::Tools;
 
 use base qw(PVE::Storage::Plugin);
 
