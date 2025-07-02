@@ -1,6 +1,0 @@
-libpve-storage-examples-perl (0.1.0) bookworm; urgency=medium
-
-  * Initial release. Includes two backup provider plugin examples: one for a
-    directory storage and one for Borg.
-
- -- Proxmox Support Team <support@proxmox.com>  Mon, 07 Apr 2025 13:49:40 +0200

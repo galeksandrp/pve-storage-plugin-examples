@@ -1,47 +1,25 @@
-include /usr/share/dpkg/default.mk
+# Just some convenience targets for executing a make target over all examples.
+#
+# These are just some convenience targets for executing a 'make' target over
+# all the examples.
+#
+# If you use this as a template for your PVE storage or backup plugin, you will
+# usually just want to use the folder of the example that most closely matches
+# your feature set and use case as a base.
 
-PACKAGE=libpve-storage-examples-perl
+SUBDIRS := \
+ backup-provider-borg \
+ backup-provider-directory \
 
-GITVERSION:=$(shell git rev-parse HEAD)
+.PHONY: deb dsc sbuild clean
+deb:
+	for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" $@; done
 
-BUILDDIR ?= $(PACKAGE)-$(DEB_VERSION)
-DSC=$(PACKAGE)_$(DEB_VERSION).dsc
+dsc:
+	for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" $@; done
 
-DEB=$(PACKAGE)_$(DEB_VERSION_UPSTREAM_REVISION)_all.deb
+sbuild:
+	for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" $@; done
 
-all: $(DEB)
-
-$(BUILDDIR): debian
-	rm -rf $@ $@.tmp
-	cp -a src $@.tmp
-	cp -a debian/ $@.tmp/
-	echo "git clone git://git.proxmox.com/git/pve-storage-examples.git\\ngit checkout $(GITVERSION)" > $@.tmp/debian/SOURCE
-	mv $@.tmp $@
-
-.PHONY: deb
-deb: $(DEB)
-$(DEB): $(BUILDDIR)
-	cd $(BUILDDIR); dpkg-buildpackage -b -us -uc
-	lintian $(DEB)
-
-.PHONY: dsc
-dsc: $(DSC)
-$(DSC): $(BUILDDIR)
-	cd $(BUILDDIR); dpkg-buildpackage -S -us -uc -d
-	lintian $(DSC)
-
-.PHONY: sbuild
-sbuild: $(DSC)
-	sbuild $(DSC)
-
-.PHONY: upload
-upload: UPLOAD_DIST ?= $(DEB_DISTRIBUTION)
-upload: $(DEB)
-	tar cf - $(DEB)|ssh repoman@repo.proxmox.com -- upload --product pve --dist $(UPLOAD_DIST)
-
-.PHONY: distclean
-distclean: clean
-
-.PHONY: clean
 clean:
-	rm -rf $(PACKAGE)-[0-9]*/ $(PACKAGE)*.tar.* *.deb *.dsc *.changes *.build *.buildinfo
+	for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" $@; done

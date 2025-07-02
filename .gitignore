@@ -1,0 +1,7 @@
+*.buildinfo
+*.changes
+*.tar.?z
+*.tar.zst
+*.deb
+*.dsc
+libpve-storage-*-[0-9]*/

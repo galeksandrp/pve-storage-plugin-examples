@@ -1,4 +1,4 @@
-Source: libpve-storage-examples-perl
+Source: libpve-storage-backup-directory-perl
 Section: perl
 Priority: optional
 Maintainer: Proxmox Support Team <support@proxmox.com>
@@ -8,12 +8,13 @@ Build-Depends: debhelper-compat (= 13),
 Standards-Version: 4.6.2
 Homepage: https://www.proxmox.com
 
-Package: libpve-storage-examples-perl
+Package: libpve-storage-backup-directory-perl
 Architecture: all
 Depends: libpve-storage-perl (>= 8.3.5),
          ${misc:Depends},
          ${perl:Depends},
 Recommends: libnbd-bin,
-Description: Example plugins for Proxmox VE storage management library
- This package contains example plugins for the storage management library used
- by Proxmox VE.
+Description: Example plugin for Borg backup integration as Proxmox VE storage
+ This package contains an example of a backup provider plugin that can be used
+ to access directory-based storage as a backup target via the storage
+ management library used by Proxmox VE.
