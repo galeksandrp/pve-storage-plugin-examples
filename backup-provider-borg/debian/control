@@ -10,7 +10,8 @@ Homepage: https://www.proxmox.com
 
 Package: libpve-storage-backup-borg-perl
 Architecture: all
-Depends: libpve-storage-perl (>= 8.3.5),
+Depends: libpve-common-perl (>= 8~),
+         libpve-storage-perl (>= 8.3.5),
          ${misc:Depends},
          ${perl:Depends},
 Recommends: libnbd-bin,
