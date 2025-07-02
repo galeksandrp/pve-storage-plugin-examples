@@ -18,7 +18,20 @@ use PVE::BackupProvider::Plugin::Borg;
 use base qw(PVE::Storage::Plugin);
 
 sub api {
-    return 11;
+    # Adjust this range according to your tests. This is an example of a backup provider, so 11 is
+    # the minimum API version, as support for backup providers was introduced with that version
+    my $supported_apiver_min = 11;
+    my $supported_apiver_max = 11;
+
+    my $api_ver = PVE::Storage::APIVER;
+
+    if ($api_ver >= $supported_apiver_min and $api_ver <= $supported_apiver_max) {
+        return $api_ver;
+    }
+
+    # Fallback to the maximum supported API version, as this may still be within the backward-compat
+    # API version range if PVE::Storage::APIAGE > 0. If not, we cannot guarantee compatibility.
+    return $supported_apiver_max;
 }
 
 sub check_config {
