@@ -1,0 +1,5 @@
+libpve-storage-plugin-sshfs-perl (1.0.0) UNRELEASED; urgency=medium
+
+  * Initial release.
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 09 Apr 2025 16:13:26 +0200

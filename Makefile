@@ -10,6 +10,7 @@
 SUBDIRS := \
  backup-provider-borg \
  backup-provider-directory \
+ plugin-sshfs \
 
 .PHONY: deb dsc sbuild clean
 deb:

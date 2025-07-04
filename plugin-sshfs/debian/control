@@ -1,0 +1,22 @@
+Source: libpve-storage-plugin-sshfs-perl
+Section: perl
+Priority: optional
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ libpve-storage-perl (>= 8.3.3),
+ lintian,
+ perl,
+ rsync,
+Standards-Version: 4.6.2
+
+Package: libpve-storage-plugin-sshfs-perl
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${perl:Depends},
+ libpve-storage-perl (>= 8.3.3),
+ sshfs (>= 3.7.3),
+Description: SSHFS storage plugin for Proxmox Virtual Environment.
+ Used to demonstrate plugin development.
