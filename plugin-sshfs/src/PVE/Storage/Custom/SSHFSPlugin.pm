@@ -1,6 +1,6 @@
 package PVE::Storage::Custom::SSHFSPlugin;
 
-use v5.36;
+use v5.36; # implies strict and warnings and enables method signature feature.
 
 use Cwd qw();
 use Encode qw(decode encode);
