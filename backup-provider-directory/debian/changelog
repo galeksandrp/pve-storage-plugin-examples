@@ -1,5 +1,0 @@
-libpve-storage-backup-directory-perl (0.1.0) bookworm; urgency=medium
-
-  * Initial release. Includes a backup provider plugin example for Borg.
-
- -- Proxmox Support Team <support@proxmox.com>  Mon, 07 Apr 2025 13:49:40 +0200
